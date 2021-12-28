@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Webpack sample</title>
+  </head>
+  <body>
+    <script src="./dist/index.js"></script>
+    <ef-panel class="panel" spacing>
+      <h1>Hello!</h1>
+      <ef-text-field class="input" placeholder="Username"></ef-text-field>
+      <ef-password-field
+        class="input"
+        placeholder="Password"
+      ></ef-password-field>
+      <div class="btn-container">
+        <ef-button cta disabled>Login</ef-button>
+        <ef-button>Cancel</ef-button>
+      </div>
+    </ef-panel>
+    <script>
+      const username = document.querySelector("ef-text-field");
+      const password = document.querySelector("ef-password-field");
+      const loginButton = document.querySelector("ef-button");
+
+      const onTextChanges = function () {
+        if (username.value.length === 0 || password.value.length === 0) {
+          loginButton.disabled = true;
+        } else {
+          loginButton.disabled = false;
+        }
+      };
+
+      username.addEventListener("value-changed", onTextChanges);
+      password.addEventListener("value-changed", onTextChanges);
+
+      loginButton.addEventListener("tap", function () {
+        document.querySelector("h1").textContent = "Done!";
+      });
+    </script>
+    <style>
+      .panel {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 400px;
+        height: 300px;
+        margin: 10em auto;
+      }
+      .input {
+        margin-top: 8px;
+      }
+      .btn-container {
+        display: flex;
+        margin: 12px 0;
+      }
+      .btn-container ef-button {
+        margin: 0 8px;
+      }
+    </style>
+  </body>
+</html>

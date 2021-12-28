@@ -1,0 +1,25 @@
+{
+  "name": "vanilla",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack build --mode production && npm run build:theme",
+    "dev": "webpack build --mode development",
+    "build:theme": "lessc ./src/style.less ./dist/style.css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@refinitiv-ui/elements": "^5.10.0",
+    "@refinitiv-ui/halo-theme": "^5.4.1",
+    "@refinitiv-ui/polyfills": "^5.1.0",
+    "less": "^4.1.2"
+  },
+  "devDependencies": {
+    "html-webpack-plugin": "^5.5.0",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1"
+  }
+}
